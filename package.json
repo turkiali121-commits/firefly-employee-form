@@ -1,0 +1,13 @@
+{
+  "name": "firefly-employee-form",
+  "version": "1.0.0",
+  "description": "FireFly Employees Banking Details Submission Form",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "googleapis": "^137.0.0"
+  }
+}
