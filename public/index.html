@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FireFly Employees — Banking Details Form</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <h1 class="title">FireFly Employees — Banking Details Form</h1>
+      <h2 class="subtitle">نموذج تفاصيل الحساب البنكي لموظفي فاير فلاي</h2>
+    </header>
+
+    <div id="alertBox" class="alert hidden"></div>
+
+    <form id="bankingForm" class="form" novalidate>
+      <!-- English Name Fields -->
+      <fieldset class="fieldset">
+        <legend class="legend">Full Name in English (English)</legend>
+        <div class="grid-4">
+          <div class="form-group">
+            <label for="firstNameEn">First Name <span class="required">*</span></label>
+            <input type="text" id="firstNameEn" name="firstNameEn" placeholder="First Name" required>
+            <span class="error-msg" id="firstNameEnError"></span>
+          </div>
+          <div class="form-group">
+            <label for="fatherNameEn">Father's Name <span class="required">*</span></label>
+            <input type="text" id="fatherNameEn" name="fatherNameEn" placeholder="Father's Name" required>
+            <span class="error-msg" id="fatherNameEnError"></span>
+          </div>
+          <div class="form-group">
+            <label for="grandfatherNameEn">Grandfather's Name <span class="required">*</span></label>
+            <input type="text" id="grandfatherNameEn" name="grandfatherNameEn" placeholder="Grandfather's Name" required>
+            <span class="error-msg" id="grandfatherNameEnError"></span>
+          </div>
+          <div class="form-group">
+            <label for="familyNameEn">Family Name <span class="required">*</span></label>
+            <input type="text" id="familyNameEn" name="familyNameEn" placeholder="Family Name" required>
+            <span class="error-msg" id="familyNameEnError"></span>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Arabic Name Fields (RTL layout) -->
+      <fieldset class="fieldset rtl">
+        <legend class="legend">الاسم الرباعي باللغة العربية (العربية)</legend>
+        <div class="grid-4">
+          <div class="form-group">
+            <label for="firstNameAr">الاسم الأول <span class="required">*</span></label>
+            <input type="text" id="firstNameAr" name="firstNameAr" placeholder="الاسم الأول" required>
+            <span class="error-msg" id="firstNameArError"></span>
+          </div>
+          <div class="form-group">
+            <label for="fatherNameAr">اسم الأب <span class="required">*</span></label>
+            <input type="text" id="fatherNameAr" name="fatherNameAr" placeholder="اسم الأب" required>
+            <span class="error-msg" id="fatherNameArError"></span>
+          </div>
+          <div class="form-group">
+            <label for="grandfatherNameAr">اسم الجد <span class="required">*</span></label>
+            <input type="text" id="grandfatherNameAr" name="grandfatherNameAr" placeholder="اسم الجد" required>
+            <span class="error-msg" id="grandfatherNameArError"></span>
+          </div>
+          <div class="form-group">
+            <label for="familyNameAr">اسم العائلة <span class="required">*</span></label>
+            <input type="text" id="familyNameAr" name="familyNameAr" placeholder="اسم العائلة" required>
+            <span class="error-msg" id="familyNameArError"></span>
+          </div>
+        </div>
+      </fieldset>
+
+      <!-- Branch Selection -->
+      <div class="form-group">
+        <label for="branch">Branch / الفرع <span class="required">*</span></label>
+        <select id="branch" name="branch" required>
+          <option value="">-- Select Branch / اختر الفرع --</option>
+          <option value="Amman">Amman / عمان</option>
+          <option value="Irbid">Irbid / إربد</option>
+          <option value="Zarqa">Zarqa / الزرقاء</option>
+          <option value="Aqaba">Aqaba / العقبة</option>
+          <option value="Other">Other / آخر</option>
+        </select>
+        <span class="error-msg" id="branchError"></span>
+      </div>
+
+      <!-- Other Branch Text Field -->
+      <div class="form-group hidden" id="branchOtherGroup">
+        <label for="branchOther">Please specify branch / يرجى تحديد الفرع <span class="required">*</span></label>
+        <input type="text" id="branchOther" name="branchOther" placeholder="Branch Name">
+        <span class="error-msg" id="branchOtherError"></span>
+      </div>
+
+      <!-- Bank details -->
+      <div class="grid-2">
+        <div class="form-group">
+          <label for="bankName">Bank Name / اسم البنك <span class="required">*</span></label>
+          <input type="text" id="bankName" name="bankName" placeholder="e.g. Arab Bank" required>
+          <span class="error-msg" id="bankNameError"></span>
+        </div>
+        <div class="form-group">
+          <label for="swift">SWIFT Code / رمز السويفت <span class="required">*</span></label>
+          <input type="text" id="swift" name="swift" placeholder="e.g. ARABJOAMXXX" required>
+          <span class="error-msg" id="swiftError"></span>
+        </div>
+      </div>
+
+      <!-- IBAN Field -->
+      <div class="form-group">
+        <label for="iban">IBAN / رقم الآيبان <span class="required">*</span></label>
+        <input type="text" id="iban" name="iban" placeholder="JO00 ARAB 0000 0000 0000 0000 0000 00" required>
+        <div class="helper-text">Starts with 'JO' followed by 28 characters (Total length: 30) / يبدأ بـ JO متبوعاً بـ 28 خانة (المجموع 30 خانة)</div>
+        <span class="error-msg" id="ibanError"></span>
+      </div>
+
+      <!-- Submit button -->
+      <button type="submit" id="submitBtn" class="btn">Submit Details / إرسال البيانات</button>
+    </form>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
